@@ -6,7 +6,7 @@
 /*   By: mborsuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:00:23 by mborsuk           #+#    #+#             */
-/*   Updated: 2025/03/11 20:49:22 by mborsuk          ###   ########.fr       */
+/*   Updated: 2025/03/11 20:57:11 by mborsuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ char	**read_file(char *file_name)
 	str = read_file_contents(file_name);
 	ft_split(str, '\n', &split);
 	if (!get_ar_len(split.ar))
-		{
-			write(1,"Error\n Empty file.\n", 20);
-			return (NULL);
-		}
+	{
+		write(1, "Error\n Empty file.\n", 20);
+		return (NULL);
+	}
 	if (split.line_count > get_ar_len(split.ar))
 	{
 		free(str);

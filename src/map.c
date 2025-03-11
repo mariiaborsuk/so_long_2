@@ -6,7 +6,7 @@
 /*   By: mborsuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:00:23 by mborsuk           #+#    #+#             */
-/*   Updated: 2025/03/09 18:57:27 by mborsuk          ###   ########.fr       */
+/*   Updated: 2025/03/11 20:49:22 by mborsuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ char	**read_file(char *file_name)
 	str = read_file_contents(file_name);
 	ft_split(str, '\n', &split);
 	if (!get_ar_len(split.ar))
-		return (NULL);
+		{
+			write(1,"Error\n Empty file.\n", 20);
+			return (NULL);
+		}
 	if (split.line_count > get_ar_len(split.ar))
 	{
 		free(str);
@@ -122,11 +125,6 @@ t_map	*parse_map(char *file_name)
 	if (!check_file_extension(file_name))
 		exit(1);
 	ar = read_file(file_name);
-	if (get_ar_len(ar) == 0)
-	{
-		write(1, "Error\n Empty file\n", 19);
-		return (NULL);
-	}
 	if (!map_val(ar))
 	{
 		if (ar != NULL)

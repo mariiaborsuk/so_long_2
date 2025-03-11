@@ -6,7 +6,7 @@
 /*   By: mborsuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:46:16 by mborsuk           #+#    #+#             */
-/*   Updated: 2025/03/11 14:50:41 by mborsuk          ###   ########.fr       */
+/*   Updated: 2025/03/11 20:29:01 by mborsuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,6 @@ void	invalid_size(t_expose_data *expose_data)
 		expose_data = NULL;
 		exit(EXIT_FAILURE);
 	}
-	printf("map size %d window windt %d", expose_data->map->x *CELL_W, window_width );
+	printf("map size %d window width %d", expose_data->map->x *CELL_W, window_width );
 	printf("map size %d window HEIGHT %d", expose_data->map->y *CELL_H, window_height );
 }

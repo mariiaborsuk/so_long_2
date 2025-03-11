@@ -6,7 +6,7 @@
 /*   By: mborsuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 10:42:04 by mborsuk           #+#    #+#             */
-/*   Updated: 2025/03/09 11:03:31 by mborsuk          ###   ########.fr       */
+/*   Updated: 2025/03/11 20:51:20 by mborsuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@
 int	map_val(char **ar)
 {
 	if (!ar)
-	{
-		write(1, "Error\nEmpty file\n", 18);
 		return (0);
-	}
 	if (!check_rectangular(ar))
 		return (0);
 	if (!check_allowed_symbols(ar))

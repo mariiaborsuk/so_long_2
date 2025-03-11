@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   maps_utils.c                                       :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mborsuk <marvin@42.fr>                       +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/01 10:46:16 by mborsuk       #+#    #+#                 */
-/*   Updated: 2025/03/10 15:50:26 by mborsuk       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   maps_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mborsuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 10:46:16 by mborsuk           #+#    #+#             */
+/*   Updated: 2025/03/11 14:50:41 by mborsuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,16 @@ void	invalid_size(t_expose_data *expose_data)
 		|| expose_data->map->y * CELL_H > (unsigned int)window_height)
 	{
 		write(1, "\nError\n Map size is not correct. Change it!!", 32);
-		free_lib(expose_data);
+		free_image_pointers(expose_data->m_p);
+		mlx_loop_end(expose_data->m_p);
+		// mlx_destroy_window(data->m_p, data->w_p);
+		mlx_destroy_display(expose_data->m_p);
+		free(expose_data->m_p);
+		expose_data->m_p = NULL;
+		// data->w_p = NULL;
+		free_map(expose_data->map);
+		free(expose_data);
+		expose_data = NULL;
 		exit(EXIT_FAILURE);
 	}
 	printf("map size %d window windt %d", expose_data->map->x *CELL_W, window_width );

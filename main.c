@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: mborsuk <marvin@42.fr>                       +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2025/03/05 10:04:25 by mborsuk       #+#    #+#                 */
-/*   Updated: 2025/03/10 14:24:42 by mborsuk       ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mborsuk <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/05 10:04:25 by mborsuk           #+#    #+#             */
+/*   Updated: 2025/03/11 13:42:49 by mborsuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,9 @@ int	main(int argc, char *argv[])
 		e_x->m_p = mlx_init();
 		if (e_x->m_p == NULL)
 			perror_exit("Failed to initialize MinilibX");
+		invalid_size(e_x);
 		e_x->w_p = mlx_new_window(e_x->m_p, CELL_W * e_x->map->x,
 				CELL_H * e_x->map->y, "Game");
-		invalid_size(e_x);
 		if (e_x->w_p == NULL)
 			destroy_window(e_x->m_p);
 		expose(e_x);

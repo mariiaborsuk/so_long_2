@@ -6,7 +6,7 @@
 /*   By: mborsuk <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:00:23 by mborsuk           #+#    #+#             */
-/*   Updated: 2025/03/11 20:57:11 by mborsuk          ###   ########.fr       */
+/*   Updated: 2025/03/13 21:27:15 by mborsuk          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,19 @@ void	init_map(t_map *map, char **file_lines)
 	map->y = 0;
 	map->moves = 0;
 	map->is_victory = 0;
+	map->cells = NULL;
 	map->lost = 0;
 	i = 0;
 	size = get_ar_len(file_lines);
 	map->y = size;
 	map->x = get_len(file_lines[i]);
 	map->cells = malloc(sizeof(t_cell **) * (size + 1));
+	if (map->cells == NULL)
+	{
+		free(map);
+		free_substrings(file_lines);
+		exit(1);
+	}
 }
 
 void	fill_map_cells(t_map *map, char **file_lines)
